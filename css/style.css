@@ -1,0 +1,14 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: rgb(59,36,0);
+    background: linear-gradient(90deg, rgba(59,36,0,1) 0%, rgba(45,32,12,1) 52%, rgb(105, 32, 0) 100%);
+    color: #C0C0C0;
+}   
+.main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    padding: 30px 80px;
+    font-weight: bold;
+}

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="images/favicion.png">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>EnsarM</title>
+    <style>
+      body {
+          font-family: Arial, sans-serif;
+      }
+      
+      .projects {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+          padding: 20px;
+      }
+      
+      .article-wrapper {
+          max-width: 100%;
+          transition: 0.3s ease;
+          border-radius: 10px;
+          overflow: hidden;
+          background-color: #fff;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          cursor: pointer;
+      }
+      
+      .article-wrapper:hover {
+          box-shadow: 10px 10px 0 #ffb54e, 20px 20px 0 #bd8b44;
+          transform: translate(-10px, -10px);
+      }
+      
+      .container-project img {
+          width: 100%;
+          height: 150px;
+          object-fit: cover;
+          border-radius: 10px;
+      }
+      
+      .project-info {
+          padding: 15px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+      }
+      
+      .project-title {
+          font-size: 1.5em;
+          font-weight: 600;
+          color: #333;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+      }
+      
+      .flex-pr {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+      
+      .project-type {
+          background: #b2b2fd;
+          color: #1a41cd;
+          font-weight: bold;
+          padding: 0.3em 0.7em;
+          border-radius: 15px;
+          font-size: 12px;
+      }
+      
+      .project-hover {
+          width: 50px;
+          height: 50px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          background-color: #f0f0f0;
+          transition: all 0.3s ease;
+      }
+      
+      .project-hover:hover {
+          background-color: #504e42;
+      }
+
+      .project-hover svg:hover {
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        padding: 9px;
+        transition: all 0.3s ease;
+      }      
+
+      
+      @media (max-width: 768px) {
+          .projects{
+            grid-template-columns: repeat(1, 1fr);
+          }
+
+          .project-title {
+              font-size: 1.2em;
+          }
+      
+          .project-hover {
+              width: 40px;
+              height: 40px;
+          }
+      
+          .project-info {
+              gap: 8px;
+          }
+      }
+      
+      @media (max-width: 480px) {
+          .project-title {
+              font-size: 1em;
+          }
+      
+          .project-type {
+              font-size: 10px;
+              padding: 0.2em 0.5em;
+          }
+      
+          .project-hover {
+              width: 35px;
+              height: 35px;
+          }
+    
+      }
+      
+      </style>
+      
+<body>
+    <!--Header-->
+    <nav class="sticky border-gray-200 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-around mx-auto p-4">
+          <a href="index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="images/favicion.png" alt="logo"class="h-8">
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">EnsarM</span>
+          </a>
+          <button data-collapse-toggle="navbar-solid-bg" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-solid-bg" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+              </svg>
+          </button>
+          <div class="hidden w-full md:block md:w-auto" id="navbar-solid-bg">
+            <ul class="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
+              <li>
+                <a href="index.html" class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent" aria-current="page">Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">About</a>
+              </li>
+              <li>
+                <a href="skills.html" class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Skills</a>
+              </li>
+              <li>
+                <a href="project.html" class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Projects</a>
+              </li>
+              <li>
+                <a href="contact.html" class="block py-2 px-3 md:p-0  rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  dark:text-white  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+<!--Main-->  
+<div class="projects">
+  <article class="article-wrapper">
+    <div class="rounded-lg container-project">
+      <img src="/images/Restaurant.png" style="height: 100%; width: 100%; border-radius: 7px;">
+      </div>
+      <div class="project-info">
+        <div class="flex-pr">
+          <div class="project-title text-nowrap">Restaurant</div>
+            <div class="project-hover">
+              <a href="https://maliqirestaurant.netlify.app/" target="_blank">
+              <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" color="black" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor"><line y2="12" x2="19" y1="12" x1="5"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </a>
+            </div>
+            </div>
+            <div class="types">
+              <span style="background-color: rgba(165, 96, 247, 0.43); color: rgb(85, 27, 177);" class="project-type"><a href="https://github.com/ensarrs" target="_blank" ><i class="fa-brands fa-github"></i></a></span>
+          </div>
+      </div>
+  </article>
+  <article class="article-wrapper">
+    <div class="rounded-lg container-project">
+      <img src="/images/Digital-Menu.png" style="height: 100%; width: 100%; border-radius: 7px;">
+      </div>
+      <div class="project-info">
+        <div class="flex-pr">
+          <div class="project-title text-nowrap">Digital-Menu</div>
+            <div class="project-hover">
+              <a href="https://digitalmenu-exp.netlify.app/" target="_blank">
+                <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" color="black" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor"><line y2="12" x2="19" y1="12" x1="5"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+            <div class="types">
+              <span style="background-color: rgba(165, 96, 247, 0.43); color: rgb(85, 27, 177);" class="project-type"><a href="https://github.com/ensarrs" target="_blank" ><i class="fa-brands fa-github"></i></a></span>
+          </div>
+      </div>
+  </article>
+  <article class="article-wrapper">
+    <div class="rounded-lg container-project">
+      <img src="/images/Moon.png" style="height: 100%; width: 100%; border-radius: 7px;">
+      </div>
+      <div class="project-info">
+        <div class="flex-pr">
+          <div class="project-title text-nowrap">Moon</div>
+            <div class="project-hover">
+              <a href="https://moon-satellite.netlify.app/" target="_blank">
+                <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" color="black" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor"><line y2="12" x2="19" y1="12" x1="5"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+            <div class="types">
+              <span style="background-color: rgba(165, 96, 247, 0.43); color: rgb(85, 27, 177);" class="project-type"><a href="https://github.com/ensarrs" target="_blank" ><i class="fa-brands fa-github"></i></a></span>
+          </div>
+      </div>
+  </article>
+  <article class="article-wrapper">
+    <div class="rounded-lg container-project">
+      <img src="/images/Profile-Card.png" style="height: 100%; width: 100%; border-radius: 7px;">
+      </div>
+      <div class="project-info">
+        <div class="flex-pr">
+          <div class="project-title text-nowrap">Profile-Card</div>
+            <div class="project-hover">
+              <a href="https://profilecard-ensar.netlify.app" target="_blank">
+                <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" color="black" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor"><line y2="12" x2="19" y1="12" x1="5"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+            <div class="types">
+              <span style="background-color: rgba(165, 96, 247, 0.43); color: rgb(85, 27, 177);" class="project-type"><a href="https://github.com/ensarrs" target="_blank" ><i class="fa-brands fa-github"></i></a></span>
+          </div>
+      </div>
+  </article>
+  <article class="article-wrapper">
+    <div class="rounded-lg container-project">
+      <img src="/images/TechToday.png" style="height: 100%; width: 100%; border-radius: 7px;">
+      </div>
+      <div class="project-info">
+        <div class="flex-pr">
+          <div class="project-title text-nowrap">TechToday</div>
+            <div class="project-hover">
+              <a href="https://techtoday-news.netlify.app" target="_blank">
+                <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" color="black" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor"><line y2="12" x2="19" y1="12" x1="5"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+            <div class="types">
+              <span style="background-color: rgba(165, 96, 247, 0.43); color: rgb(85, 27, 177);" class="project-type"><a href="https://github.com/ensarrs" target="_blank" ><i class="fa-brands fa-github"></i></a></span>
+          </div>
+      </div>
+  </article>
+  <article class="article-wrapper">
+    <div class="rounded-lg container-project">
+      <img src="/images/To-do-list.png" style="height: 100%; width: 100%; border-radius: 7px;">
+      </div>
+      <div class="project-info">
+        <div class="flex-pr">
+          <div class="project-title text-nowrap">To-Do-List</div>
+            <div class="project-hover">
+              <a href="https://to-do-list-exp.netlify.app" target="_blank">
+                <svg style="color: black;" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" color="black" stroke-linejoin="round" stroke-linecap="round" viewBox="0 0 24 24" stroke-width="2" fill="none" stroke="currentColor"><line y2="12" x2="19" y1="12" x1="5"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
+            <div class="types">
+              <span style="background-color: rgba(165, 96, 247, 0.43); color: rgb(85, 27, 177);" class="project-type"><a href="https://github.com/ensarrs" target="_blank" ><i class="fa-brands fa-github"></i></a></span>
+          </div>
+      </div>
+  </article>
+</div>
+<!--Footer-->
+
+<footer class="bg-gray rounded-lg shadow m-4 dark:bg-gray-800">
+    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="index.html" class="hover:underline">EnsarM</a>. All Rights Reserved.
+    </span>
+    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0 md:justify-between">
+        <li>
+            <a href="index.html" class="hover:underline mr-4 md:mr-6">Home</a>
+        </li>
+        <li>
+            <a href="about.html" class="hover:underline mr-4 md:mr-6">About</a>
+        </li>
+        <li>
+            <a href="skills.html" class="hover:underline mr-4 md:mr-6">Skills</a>
+        </li>
+        <li>
+            <a href="project.html" class="hover:underline mr-4 md:mr-6">Projects</a>
+        </li>
+        <li>
+            <a href="contact.html" class="hover:underline">Contact</a>
+        </li>
+    </ul>
+    
+    </div>
+</footer>
+
+<script src="script/script.js"></script>
+
+
+</body>
+</html>
